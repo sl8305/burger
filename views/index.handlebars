@@ -1,44 +1,46 @@
 <h1>Eat The Burger!</h1>
+<img src="assets/img/baconcheesy.jpg" alt="burgerImage" height="200px">
 
-<h2>Burgers that are not eaten!</h2>
 
-<ul>
-  {{!-- #each is a handlebars method that allows us to iterate over an array the same way we would do it with a standard for loop in javascript --}}
-  {{#each burgers}}
-  {{!-- if eaten is false --}}
-    {{#unless eaten}}
-    {{!-- '>' notation indiburgerses that we are rendering a partial (a component of the UI) --}}
-    {{!-- line below imports the following relative path -> /partials/burgers/burgers-block --}}
-      {{> burgers-block consado=true}}      
-    {{/unless}}
-  {{/each}}
-</ul>
+<div id="freshBurger">
+  <h2>Burgers that are not eaten!</h2>
 
-<h2>Burgers that are eaten!</h2>
+  <ul>
+    {{!-- #each is a handlebars method that allows us to iterate over an array the same way we would do it with a standard for loop in javascript --}}
+    {{#each burgers}}
+    {{!-- if eaten is false --}}
+      {{#unless eaten}}
+      {{!-- '>' notation indiburgerses that we are rendering a partial (a component of the UI) --}}
+      {{!-- line below imports the following relative path -> /partials/burgers/burgers-block --}}
+        {{> burgers-block}}      
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 
-<ul>
-  {{#each burgers}}
-  {{!-- if eaten is true --}}
-    {{#if eaten}}
-      {{> burgers-block consado=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+{{!-- div for the burgers we have already eaten --}}
+<div id="burgerHistory">
+  <h2>Burgers that are eaten!</h2>
 
+  <ul>
+    {{#each burgers}}
+    {{!-- if eaten is true --}}
+      {{#if eaten}}
+        {{> burgers-block}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
+{{!-- div for the new burger form --}}
 <div id="newBurger">
 
-<h2>Add a burger</h2>
+  <h2>Add a burger</h2>
     <form class="create-form">
 
         <div class="form-group">
             <label for="ca">Burger Name:</label>
             <input type="text" id="ca" name="name">
-        </div>
-
-        <div class="form-group">
-            <label for="eaten">Is the burger fresh or eaten?</label><br>
-            <input type="radio" name="eaten" value="1" checked> Eaten!<br>
-            <input type="radio" name="eaten" value="0"> Freshly Made!
         </div>
 
         <button type="submit">Add burgers</button>
