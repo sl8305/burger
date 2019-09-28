@@ -1,11 +1,13 @@
-<li>
-	{{burger_name}}
+<p> {{burger_name}}	</p>
+<p>	
+	{{!-- If the burger is not eaten the choice button will be called EAT ME --}}
 	{{#unless eaten}}
 		<button class="change-eaten" id="{{id}}" data-neweaten="{{eaten}}">
 			EAT ME!
 		</button>
 	{{/unless}}
 
+	{{!-- else if the burger is eaten the choice COOK MORE will appear --}}
 	{{#if eaten}}
 		<button class="cook-more" id="{{id}}" data-neweaten="{{eaten}}">
 			COOK MORE!
@@ -13,4 +15,4 @@
 	{{/if}}
 
 	<button class="delete-burger" id="{{id}}">DELETE!</button>
-</li>
+</p>	

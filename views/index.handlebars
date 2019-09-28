@@ -1,48 +1,53 @@
-<h1>Eat The Burger!</h1>
-<img src="assets/img/baconcheesy.jpg" alt="burgerImage" height="200px">
-
-
-<div id="freshBurger">
-  <h2>Burgers that are not eaten!</h2>
-
-  <ul>
-    {{!-- #each is a handlebars method that allows us to iterate over an array the same way we would do it with a standard for loop in javascript --}}
-    {{#each burgers}}
-    {{!-- if eaten is false --}}
-      {{#unless eaten}}
-      {{!-- '>' notation indiburgerses that we are rendering a partial (a component of the UI) --}}
-      {{!-- line below imports the following relative path -> /partials/burgers/burgers-block --}}
-        {{> burgers-block}}      
-      {{/unless}}
-    {{/each}}
-  </ul>
+<div id="eatTheBurger">
+  <h1>Eat The Burger!</h1>
+  <img src="assets/img/baconcheesy.jpg" alt="burgerImage" height="200px">
 </div>
 
-{{!-- div for the burgers we have already eaten --}}
-<div id="burgerHistory">
-  <h2>Burgers that are eaten!</h2>
+<div class="row">
 
-  <ul>
-    {{#each burgers}}
-    {{!-- if eaten is true --}}
-      {{#if eaten}}
-        {{> burgers-block}}
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
+  <div id="freshBurger" class="col-4">
+    <h2>Burgers that are not eaten!</h2>
 
-{{!-- div for the new burger form --}}
-<div id="newBurger">
+    <ul>
+      {{!-- #each is a handlebars method that allows us to iterate over an array the same way we would do it with a standard for loop in javascript --}}
+      {{#each burgers}}
+      {{!-- if eaten is false --}}
+        {{#unless eaten}}
+        {{!-- '>' notation indiburgerses that we are rendering a partial (a component of the UI) --}}
+        {{!-- line below imports the following relative path -> /partials/burgers/burgers-block --}}
+          {{> burgers-block}}      
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
 
-  <h2>Add a burger</h2>
-    <form class="create-form">
+  {{!-- div for the new burger form --}}
+  <div id="newBurger" class="col-4">
 
-        <div class="form-group">
+    <h2>Add a burger</h2>
+      <form class="create-form">
+
+          <div class="form-group">
             <label for="ca">Burger Name:</label>
+            <br>
             <input type="text" id="ca" name="name">
-        </div>
+            <button type="submit">Add burgers</button>
+          </div>
+      </form>
+  </div>
 
-        <button type="submit">Add burgers</button>
-    </form>
+  {{!-- div for the burgers we have already eaten --}}
+  <div id="burgerHistory" class="col-4">
+    <h2>Burgers that are eaten!</h2>
+
+    <ul>
+      {{#each burgers}}
+      {{!-- if eaten is true --}}
+        {{#if eaten}}
+          {{> burgers-block}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+  
 </div>
