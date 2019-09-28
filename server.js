@@ -1,10 +1,13 @@
 // import express so that we can build our express web server
 var express = require("express");
 var exphbs = require("express-handlebars");
+require("dotenv").config();
 
 // declare PORT, process.env.PORT is used in the production environment and this PORT number is provided it's value via heroku.
 // when in the development environment use PORT 8080 (this port number is just a common convention)
 var PORT = process.env.PORT || 2000;
+
+console.log(process.env.test);
 
 // declare an instance of an express application
 var app = express();
