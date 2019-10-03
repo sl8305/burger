@@ -44,3 +44,11 @@ app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
+
+// Timeout
+app.use(timeout(15000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req,res,next){
+  if(req.timedout) next();
+}

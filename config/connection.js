@@ -17,7 +17,7 @@ if(process.env.NODE_ENV === "production"){
     // port: process.env.JAWSPORT,
     // password: process.env.JAWSPWD,
     // database: process.env.JAWSDB
-     process.env.JAWSDB_URL
+    process.env.JAWSDB_URL
   );
 
 }
