@@ -1,6 +1,7 @@
 // import express so that we can build our express web server
 var express = require("express");
 var exphbs = require("express-handlebars");
+var timer = require("timer");
 require("dotenv").config();
 
 // declare PORT, process.env.PORT is used in the production environment and this PORT number is provided it's value via heroku.
@@ -46,9 +47,9 @@ app.listen(PORT, function() {
 });
 
 // Timeout
-app.use(timeout(15000));
-app.use(haltOnTimedout);
+// app.use(timeout(15000));
+// app.use(haltOnTimedout());
 
-function haltOnTimedout(req,res,next){
-  if(req.timedout) next();
-}
+// function haltOnTimedout(req,res,next){
+//   if(req.timedout) next();
+// }

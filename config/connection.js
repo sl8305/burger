@@ -11,14 +11,7 @@ var connection = mysql.createConnection({
 });
 
 if(process.env.NODE_ENV === "production"){
-  connection = mysql.createConnection(
-    // host: process.env.JAWSHOST,
-    // user: process.env.JAWSUSER,
-    // port: process.env.JAWSPORT,
-    // password: process.env.JAWSPWD,
-    // database: process.env.JAWSDB
-    process.env.JAWSDB_URL
-  );
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 }
 
