@@ -8,7 +8,7 @@ require("dotenv").config();
 // when in the development environment use PORT 8080 (this port number is just a common convention)
 var PORT = process.env.PORT || 2000;
 
-console.log(process.env.test);
+// console.log(process.env.test);
 
 // declare an instance of an express application
 var app = express();
